@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7d14ca5-0c69-4171-aeb6-6a340048cd65" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemoteInstaller/app/src/main/java/remoteapkinstallerclient/com/br/remoteinstaller/AppsAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RemoteInstaller/.idea/misc.xml" afterPath="$PROJECT_DIR$/RemoteInstaller/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RemoteInstaller/app/build.gradle" afterPath="$PROJECT_DIR$/RemoteInstaller/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RemoteInstaller/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/RemoteInstaller/app/src/main/AndroidManifest.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

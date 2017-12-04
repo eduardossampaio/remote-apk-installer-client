@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="6dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        app:cardCornerRadius="8dp"
+        app:cardElevation="17dp"
+        app:cardBackgroundColor="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_nome"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#ed565656"
+                android:text="SicoobCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_app_package"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#eda1a0a0"
+                android:text="br.com.teste.meuapp.teste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_app_version"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#eda1a0a0"
+                    android:text="versão 14.2.3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_hour"
+                    android:layout_alignParentRight="true"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#eda1a0a0"
+                    android:text="24/05/2017 - 22h:30min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_changelos"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:text="CHANGELOG"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="15dp"
+                    android:padding="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btn_install"
+                    android:layout_centerVertical="true"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_alignParentRight="true"
+                    android:text="INSTALAR"
+                    android:layout_marginTop="15dp"
+                    android:padding="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
