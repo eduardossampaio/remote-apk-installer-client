@@ -5,5 +5,6 @@ package remoteapkinstallerclient.com.br.remoteinstaller.service;
  */
 
 class Urls {
-    public static String BASE_URL = "http://192.168.2.150:8080/";
+    //public static String BASE_URL = "http://192.168.2.150:8080/";
+    public static String BASE_URL = "http://www.mocky.io/";
 }

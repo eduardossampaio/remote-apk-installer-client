@@ -14,6 +14,6 @@ import retrofit2.http.Query;
 
 public interface AppService {
 
-    @POST("apk/listAll")
+    @POST("v2/5a25bc532e00008334a906fa")
     Call<AppsResponse> getApps();
 }
