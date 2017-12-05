@@ -1,7 +1,7 @@
 package remoteapkinstallerclient.com.br.remoteinstaller.objects;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Created by joao.roriz on 04/12/17.
@@ -9,28 +9,28 @@ import java.util.Date;
 
 public class App implements Serializable {
 
-    private String name;
+    private String appName;
     private String packageName;
     private String versionName;
     private Integer versionCode;
     private Long addedDate;
     private String checksum;
-    private String changelogs;
+    private List<String> changelog;
 
     public String getName() {
-        return name;
+        return appName;
     }
 
-    public String getChangelogs() {
-        return changelogs;
+    public List<String> getChangelog() {
+        return changelog;
     }
 
-    public void setChangelogs(String changelogs) {
-        this.changelogs = changelogs;
+    public void setChangelog(List<String> changelog) {
+        this.changelog = changelog;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.appName = name;
     }
 
     public String getPackageName() {

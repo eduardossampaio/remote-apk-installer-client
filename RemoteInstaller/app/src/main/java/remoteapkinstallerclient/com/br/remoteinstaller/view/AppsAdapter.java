@@ -33,7 +33,7 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
 
     @Override
     public AppsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_app, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_app, parent, false);
         return  new AppsViewHolder(view);
     }
 
@@ -57,7 +57,16 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
             public void onClick(View view) {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
                 alertDialog.setTitle("CHANGUELOG");
-                alertDialog.setMessage(app.getChangelogs())
+
+                String message ="";
+                if(app.getChangelog() != null && app.getChangelog().isEmpty()){
+                    message = "Nenhum changlog registrado";
+                }else{
+                    for (String log : app.getChangelog()){
+                        message = message + log+"\n";
+                    }
+                }
+                alertDialog.setMessage(message)
                         .setCancelable(false)
                         .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {

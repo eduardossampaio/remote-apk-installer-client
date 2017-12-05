@@ -5,6 +5,7 @@
     android:layout_marginTop="6dp"
     android:layout_marginLeft="6dp"
     android:layout_marginRight="6dp"
+    android:background="#002b1e1e"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
