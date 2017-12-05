@@ -56,7 +56,7 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-                alertDialog.setTitle("CHANGUELOG");
+                alertDialog.setTitle(app.getName());
 
                 String message ="";
                 if(app.getChangelog() != null && app.getChangelog().isEmpty()){
