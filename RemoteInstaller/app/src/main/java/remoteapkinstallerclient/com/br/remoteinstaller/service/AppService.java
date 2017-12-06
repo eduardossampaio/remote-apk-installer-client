@@ -5,6 +5,7 @@ import java.util.List;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.AppsResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
@@ -14,6 +15,8 @@ import retrofit2.http.Query;
 
 public interface AppService {
 
-    @POST("v2/5a25bc532e00008334a906fa")
+//    @POST("v2/5a25bc532e00008334a906fa")
+    @Headers("Content-Type: application/json")
+    @POST("listAll")
     Call<AppsResponse> getApps();
 }

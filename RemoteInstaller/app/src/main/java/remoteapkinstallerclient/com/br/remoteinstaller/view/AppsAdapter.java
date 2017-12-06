@@ -1,6 +1,7 @@
 package remoteapkinstallerclient.com.br.remoteinstaller.view;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
@@ -11,11 +12,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
 import remoteapkinstallerclient.com.br.remoteinstaller.R;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.DownloadTask;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.Urls;
 import remoteapkinstallerclient.com.br.remoteinstaller.utils.DateUtils;
 
 /**
@@ -48,7 +52,24 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
         holder.btnInstall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Aqui vai instalar", Toast.LENGTH_SHORT).show();
+                ProgressDialog mProgressDialog;
+
+// instantiate it within the onCreate method
+                mProgressDialog = new ProgressDialog(context);
+                mProgressDialog.setMessage("Aguarde");
+                mProgressDialog.setIndeterminate(true);
+                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                mProgressDialog.setCancelable(true);
+
+                final DownloadTask downloadTask = new DownloadTask(context);
+                downloadTask.execute(Urls.DOWNLOAD_APP_BASE_URL + URLEncoder.encode(app.getChecksum()), "UTF-8");
+
+                mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        downloadTask.cancel(true);
+                    }
+                });
             }
         });
 
