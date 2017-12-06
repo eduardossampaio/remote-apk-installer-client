@@ -21,6 +21,7 @@ import java.net.URL;
 
 import remoteapkinstallerclient.com.br.remoteinstaller.BuildConfig;
 
+@Deprecated
 public class DownloadTask extends AsyncTask<String, Integer, String> {
 
     private Context context;
@@ -63,7 +64,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
             }
             file = new File(path, "apk_mudar_depois.apk");
             if(!file.exists()){
-                file.createNewFile();
+//                file.createNewFile();
             }
 //            output = new FileOutputStream(file);
 //
@@ -127,33 +128,11 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
         if (result != null)
             Toast.makeText(context,"Download error: "+result, Toast.LENGTH_LONG).show();
         else {
-//            //Intent intent = new Intent(Intent.ACTION_VIEW);
-//            intent.setDataAndType(Uri.fromFile(file), "application/tivit.com.cabal.sicoob.cp.dev");
-//            context.startActivity(intent);
-
-
-//            Intent intent = new Intent(Intent.ACTION_VIEW);
-//            intent.setAction(android.content.Intent.ACTION_VIEW);
-//            intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-//            File file = new File(context.getFilesDir(), "apk_mudar_depois.apk");
-//            Uri uri = Uri.fromFile(file);
-//            intent.setData(uri);
-//            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//            context.startActivity(intent);
-
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                Uri apkUri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".service", file);
-//                Intent intent = new Intent(Intent.ACTION_INSTALL_PACKAGE);
-//                intent.setData(apkUri);
-//                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//                context.startActivity(intent);
-//            } else {
                 Uri apkUri = Uri.fromFile(file);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-            //}
         }
     }
 }

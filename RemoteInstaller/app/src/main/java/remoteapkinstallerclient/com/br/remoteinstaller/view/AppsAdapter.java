@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
 import remoteapkinstallerclient.com.br.remoteinstaller.R;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.DownloadService;
 import remoteapkinstallerclient.com.br.remoteinstaller.service.DownloadTask;
 import remoteapkinstallerclient.com.br.remoteinstaller.service.Urls;
 import remoteapkinstallerclient.com.br.remoteinstaller.utils.DateUtils;
@@ -55,21 +57,26 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
                 ProgressDialog mProgressDialog;
 
 // instantiate it within the onCreate method
-                mProgressDialog = new ProgressDialog(context);
-                mProgressDialog.setMessage("Aguarde");
-                mProgressDialog.setIndeterminate(true);
-                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                mProgressDialog.setCancelable(true);
-
-                final DownloadTask downloadTask = new DownloadTask(context);
-                downloadTask.execute(Urls.DOWNLOAD_APP_BASE_URL + URLEncoder.encode(app.getChecksum()), "UTF-8");
-
-                mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        downloadTask.cancel(true);
-                    }
-                });
+//                mProgressDialog = new ProgressDialog(context);
+//                mProgressDialog.setMessage("Aguarde");
+//                mProgressDialog.setIndeterminate(true);
+//                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+//                mProgressDialog.setCancelable(true);
+//
+//                final DownloadTask downloadTask = new DownloadTask(context);
+//                downloadTask.execute(Urls.DOWNLOAD_APP_BASE_URL + URLEncoder.encode(app.getChecksum()), "UTF-8");
+//
+//                mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//                    @Override
+//                    public void onCancel(DialogInterface dialog) {
+//                        downloadTask.cancel(true);
+//                    }
+//                });
+                try {
+                    new DownloadService().download(context,app);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

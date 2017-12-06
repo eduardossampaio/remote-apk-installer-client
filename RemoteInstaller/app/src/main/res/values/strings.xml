@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Remote Installer</string>
+    <string name="menu_refresh">Atualizar</string>
+    <string name="menu_settings">Configurações</string>
 </resources>

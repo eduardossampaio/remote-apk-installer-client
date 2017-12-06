@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.List;
@@ -65,5 +68,31 @@ public class ListAppsActivity extends AppCompatActivity {
         appsAdapter = new AppsAdapter(apps, this);
         rvApps.setLayoutManager(linearLayoutManager);
         rvApps.setAdapter(appsAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.menu_refresh){
+            refresh();
+        }else if(item.getItemId()==R.id.menu_settings){
+            goToSettings();
+        }else {
+            return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+    private void refresh(){
+        Toast.makeText(this, "refreshing", Toast.LENGTH_SHORT).show();
+    }
+    private void goToSettings(){
+        Toast.makeText(this, "go to settings", Toast.LENGTH_SHORT).show();
     }
 }
