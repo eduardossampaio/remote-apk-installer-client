@@ -1,6 +1,7 @@
 package remoteapkinstallerclient.com.br.remoteinstaller.view;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -93,6 +94,6 @@ public class ListAppsActivity extends AppCompatActivity {
         Toast.makeText(this, "refreshing", Toast.LENGTH_SHORT).show();
     }
     private void goToSettings(){
-        Toast.makeText(this, "go to settings", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,SettingsActivity.class));
     }
 }

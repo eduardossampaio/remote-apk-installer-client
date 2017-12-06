@@ -2,4 +2,7 @@
     <string name="app_name">Remote Installer</string>
     <string name="menu_refresh">Atualizar</string>
     <string name="menu_settings">Configurações</string>
+    <string name="settings_category_network">Configurações de rede</string>
+    <string name="preferences_ip">Nome do host</string>
+    <string name="preferences_port">Porta</string>
 </resources>
