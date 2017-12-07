@@ -2,8 +2,8 @@ package remoteapkinstallerclient.com.br.remoteinstaller.view.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -15,14 +15,8 @@ import java.util.List;
 
 import remoteapkinstallerclient.com.br.remoteinstaller.R;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.http.apps.AppsResponse;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.http.apps.APIClient;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.http.apps.AppHttpService;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.AppService;
 import remoteapkinstallerclient.com.br.remoteinstaller.view.adapter.AppsAdapter;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class ListAppsActivity extends AppCompatActivity {
 
@@ -30,36 +24,35 @@ public class ListAppsActivity extends AppCompatActivity {
     private RecyclerView rvApps;
 
     private ProgressDialog progressDialog;
-    private List<App> listApps;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_apps);
-
         rvApps = findViewById(R.id.rv_apps);
+    }
 
-        Retrofit retrofit = APIClient.getClient();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requestApps();
+    }
 
-        AppHttpService resquestManager = retrofit.create(AppHttpService.class);
+    private void requestApps(){
         progressDialog = ProgressDialog.show(this, "Remote Installer", "Carregando...", true);
-        resquestManager.getApps().enqueue(new Callback<AppsResponse>() {
+        AppService appService = new AppService();
+        appService.listApplications(this, new AppService.ListAppsServiceCallback() {
             @Override
-            public void onResponse(Call<AppsResponse> call, Response<AppsResponse> response) {
-                if(response.isSuccessful()) {
-                    progressDialog.dismiss();
-                    listApps = response.body().getResponse();
-                    initList(listApps);
-                }else{
-                    Toast.makeText(ListAppsActivity.this, "Erro 1", Toast.LENGTH_SHORT).show();
-                }
+            public void onSuccess(List<App> apps) {
+                progressDialog.dismiss();
+                initList(apps);
             }
 
             @Override
-            public void onFailure(Call<AppsResponse> call, Throwable t) {
+            public void onError(Throwable cause) {
                 progressDialog.dismiss();
-                Toast.makeText(ListAppsActivity.this, "Erro 2", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(ListAppsActivity.this, "Error: "+cause.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -92,7 +85,7 @@ public class ListAppsActivity extends AppCompatActivity {
     }
 
     private void refresh(){
-        Toast.makeText(this, "refreshing", Toast.LENGTH_SHORT).show();
+        requestApps();
     }
     private void goToSettings(){
         startActivity(new Intent(this,SettingsActivity.class));

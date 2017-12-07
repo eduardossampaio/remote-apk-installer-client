@@ -51,23 +51,6 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
             @Override
             public void onClick(View view) {
                 ProgressDialog mProgressDialog;
-
-// instantiate it within the onCreate method
-//                mProgressDialog = new ProgressDialog(context);
-//                mProgressDialog.setMessage("Aguarde");
-//                mProgressDialog.setIndeterminate(true);
-//                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-//                mProgressDialog.setCancelable(true);
-//
-//                final DownloadTask downloadTask = new DownloadTask(context);
-//                downloadTask.execute(Constants.DOWNLOAD_APP_BASE_URL + URLEncoder.encode(app.getChecksum()), "UTF-8");
-//
-//                mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-//                    @Override
-//                    public void onCancel(DialogInterface dialog) {
-//                        downloadTask.cancel(true);
-//                    }
-//                });
                 try {
                     new DownloadService().download(context,app);
                 } catch (UnsupportedEncodingException e) {
@@ -105,7 +88,7 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
 
     @Override
     public int getItemCount() {
-        return apps.size();
+        return apps==null? 0 : apps.size();
     }
 
     class AppsViewHolder extends RecyclerView.ViewHolder{
