@@ -16,11 +16,11 @@ import java.util.List;
 import remoteapkinstallerclient.com.br.remoteinstaller.R;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App;
 import remoteapkinstallerclient.com.br.remoteinstaller.service.AppService;
-import remoteapkinstallerclient.com.br.remoteinstaller.view.adapter.AppsAdapter;
+import remoteapkinstallerclient.com.br.remoteinstaller.view.adapter.ListApksAdapter;
 
 public class ListAppsActivity extends AppCompatActivity {
 
-    private AppsAdapter appsAdapter;
+    private ListApksAdapter appsAdapter;
     private RecyclerView rvApps;
 
     private ProgressDialog progressDialog;
@@ -60,7 +60,8 @@ public class ListAppsActivity extends AppCompatActivity {
 
     void initList(List<App> apps){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        appsAdapter = new AppsAdapter(apps, this);
+//        appsAdapter = new AppsAdapter(apps, this);
+        appsAdapter = new ListApksAdapter(apps, this);
         rvApps.setLayoutManager(linearLayoutManager);
         rvApps.setAdapter(appsAdapter);
     }
