@@ -1,4 +1,4 @@
-package remoteapkinstallerclient.com.br.remoteinstaller.objects;
+package remoteapkinstallerclient.com.br.remoteinstaller.service.http.apps;
 
 import java.io.Serializable;
 

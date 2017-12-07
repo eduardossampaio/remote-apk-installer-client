@@ -1,4 +1,4 @@
-package remoteapkinstallerclient.com.br.remoteinstaller.view;
+package remoteapkinstallerclient.com.br.remoteinstaller.view.adapter;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -10,18 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
 import remoteapkinstallerclient.com.br.remoteinstaller.R;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.DownloadService;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.DownloadTask;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.Urls;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.download.DownloadService;
 import remoteapkinstallerclient.com.br.remoteinstaller.utils.DateUtils;
 
 /**
@@ -64,7 +60,7 @@ public class AppsAdapter extends  RecyclerView.Adapter<AppsAdapter.AppsViewHolde
 //                mProgressDialog.setCancelable(true);
 //
 //                final DownloadTask downloadTask = new DownloadTask(context);
-//                downloadTask.execute(Urls.DOWNLOAD_APP_BASE_URL + URLEncoder.encode(app.getChecksum()), "UTF-8");
+//                downloadTask.execute(Constants.DOWNLOAD_APP_BASE_URL + URLEncoder.encode(app.getChecksum()), "UTF-8");
 //
 //                mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
 //                    @Override

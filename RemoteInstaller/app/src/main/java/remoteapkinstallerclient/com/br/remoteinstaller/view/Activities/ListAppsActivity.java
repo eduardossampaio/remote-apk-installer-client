@@ -1,4 +1,4 @@
-package remoteapkinstallerclient.com.br.remoteinstaller.view;
+package remoteapkinstallerclient.com.br.remoteinstaller.view.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,9 +15,10 @@ import java.util.List;
 
 import remoteapkinstallerclient.com.br.remoteinstaller.R;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App;
-import remoteapkinstallerclient.com.br.remoteinstaller.objects.AppsResponse;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.APIClient;
-import remoteapkinstallerclient.com.br.remoteinstaller.service.AppService;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.http.apps.AppsResponse;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.http.apps.APIClient;
+import remoteapkinstallerclient.com.br.remoteinstaller.service.http.apps.AppHttpService;
+import remoteapkinstallerclient.com.br.remoteinstaller.view.adapter.AppsAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,7 +41,7 @@ public class ListAppsActivity extends AppCompatActivity {
 
         Retrofit retrofit = APIClient.getClient();
 
-        AppService resquestManager = retrofit.create(AppService.class);
+        AppHttpService resquestManager = retrofit.create(AppHttpService.class);
         progressDialog = ProgressDialog.show(this, "Remote Installer", "Carregando...", true);
         resquestManager.getApps().enqueue(new Callback<AppsResponse>() {
             @Override
