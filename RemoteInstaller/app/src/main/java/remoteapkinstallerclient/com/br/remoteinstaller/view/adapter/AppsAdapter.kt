@@ -39,7 +39,7 @@ class AppsAdapter(private val apps: List<App>?, private val context: Context) : 
         holder.btnInstall.setOnClickListener {
             val mProgressDialog: ProgressDialog
             try {
-                DownloadService().download(context, app)
+                DownloadService.download(context, app)
             } catch (e: UnsupportedEncodingException) {
                 e.printStackTrace()
             }
