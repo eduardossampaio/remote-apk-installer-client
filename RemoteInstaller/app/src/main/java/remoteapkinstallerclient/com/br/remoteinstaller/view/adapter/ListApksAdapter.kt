@@ -15,6 +15,10 @@ import remoteapkinstallerclient.com.br.remoteinstaller.R
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App
 import remoteapkinstallerclient.com.br.remoteinstaller.utils.DateUtils
 import remoteapkinstallerclient.com.br.remoteinstaller.view.Activities.AppDetailsActivity
+import android.graphics.BitmapFactory
+import android.graphics.Bitmap
+import android.util.Base64
+
 
 /**
  * Created by eduardo.sampaio on 07/12/17.
@@ -38,6 +42,9 @@ class ListApksAdapter(private val apps: List<App>?, private val context: Context
             intent.putExtra(AppDetailsActivity.EXTRA_APP, app)
             context.startActivity(intent)
         }
+
+
+        holder.icone.setImageBitmap(app.getBitmapIcon());
 
     }
 
