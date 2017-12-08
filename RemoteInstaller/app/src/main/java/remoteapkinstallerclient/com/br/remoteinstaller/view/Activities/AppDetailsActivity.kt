@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.activity_app_details.*
 import remoteapkinstallerclient.com.br.remoteinstaller.R
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App
 import remoteapkinstallerclient.com.br.remoteinstaller.utils.DateUtils
+import ru.noties.markwon.Markwon
 
 
 class AppDetailsActivity : AppCompatActivity() {
@@ -23,6 +24,20 @@ class AppDetailsActivity : AppCompatActivity() {
         tv_app_version_code.text = "${app.versionCode}"
         tv_hour.text = DateUtils.toString("dd/MM/yyy - HH:mm",app.addedDate!!)
 
+        if(app.changelog!!.size>0) {
+//            val markdown = app.changelog!![0]
+            val markdown = "Lista\n" +
+                    "```\n" +
+                    "* foo\n" +
+                    "* bar\n" +
+                    "* baz" +
+                    "And here's some code! :+1:\n" +
+                    "\n" +
+                    "java\n" +
+                    "System.out.prinln(\"testemarkdown\");\n" +
+                    "```"
+            Markwon.setMarkdown(changelog_text, markdown);
+        }
 
     }
 }

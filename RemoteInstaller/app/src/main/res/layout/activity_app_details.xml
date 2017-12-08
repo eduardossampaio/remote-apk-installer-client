@@ -163,6 +163,19 @@
         android:textSize="14sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:padding="15dp"
+        android:id="@+id/changelog_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_install"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_chancelog_title"
+        android:text="changelog_text" />
+
 
 
 </RelativeLayout>
