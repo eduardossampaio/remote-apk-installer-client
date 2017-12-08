@@ -1,9 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="remoteapkinstallerclient.com.br.remoteinstaller.view.Activities.AppDetailsActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:layout_margin="10dp"
+        android:id="@+id/app_icon"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/app_icon"
+        android:layout_toEndOf="@+id/app_icon"
+        android:layout_toRightOf="@+id/app_icon"
+        android:text="SicoobCard"
+        android:textColor="#ed565656"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_app_package"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/app_icon"
+        android:layout_alignLeft="@+id/tv_nome"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/tv_nome"
+        android:text="br.com.teste.meuapp.teste"
+        android:textColor="#eda1a0a0"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/btn_install"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:padding="8dp"
+        android:text="Baixar e instalar"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_app_version_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/app_icon"
+        android:layout_alignStart="@+id/app_icon"
+        android:layout_below="@+id/tv_app_package"
+        android:text="Nùmero da versão:"
+        android:textColor="#ed565656"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv_app_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_app_package"
+        android:layout_toEndOf="@+id/tv_app_version_title"
+        android:layout_toRightOf="@+id/tv_app_version_title"
+        android:text="14.2.3"
+        android:textColor="#eda1a0a0"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_app_version_code_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_app_version_title"
+        android:layout_alignStart="@+id/tv_app_version_title"
+        android:layout_below="@+id/tv_app_version_title"
+        android:text="Código da versão:"
+        android:textColor="#ed565656"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_app_version_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_app_version_title"
+        android:layout_toEndOf="@+id/tv_app_version_title"
+        android:layout_toRightOf="@+id/tv_app_version_title"
+        android:text="14.2.3"
+        android:textColor="#eda1a0a0"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_app_compilation_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_app_version_code_title"
+        android:layout_alignStart="@+id/tv_app_version_code_title"
+        android:layout_below="@+id/tv_app_version_code_title"
+        android:text="Compilado em :"
+        android:textColor="#ed565656"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_app_version_code"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/tv_app_version_code"
+        android:layout_below="@+id/tv_app_version_code"
+        android:text="24/05/2017 - 22h:30min"
+        android:textColor="#eda1a0a0"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/tv_chancelog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_app_compilation_title"
+        android:gravity="center"
+        android:text="Changelog"
+        android:textColor="#eda1a0a0"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>

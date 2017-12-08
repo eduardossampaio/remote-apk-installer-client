@@ -1,6 +1,7 @@
 package remoteapkinstallerclient.com.br.remoteinstaller.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import java.util.List;
 import remoteapkinstallerclient.com.br.remoteinstaller.R;
 import remoteapkinstallerclient.com.br.remoteinstaller.objects.App;
 import remoteapkinstallerclient.com.br.remoteinstaller.utils.DateUtils;
+import remoteapkinstallerclient.com.br.remoteinstaller.view.Activities.AppDetailsActivity;
 
 /**
  * Created by eduardo.sampaio on 07/12/17.
@@ -42,6 +44,13 @@ public class ListApksAdapter extends  RecyclerView.Adapter<ListApksAdapter.AppsV
         holder.tvName.setText(app.getName());
         holder.tvHour.setText(DateUtils.toString("dd/MM/yyyy",new Date(app.getAddedDate())) +" - "+ DateUtils.toString("HH:mm", new Date(app.getAddedDate()) ));
         holder.tvAppVersion.setText("Versão: "+app.getVersionName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =  new Intent(context, AppDetailsActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
     }
 
