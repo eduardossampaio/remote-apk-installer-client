@@ -17,8 +17,11 @@ object Preferences {
     }
 
     fun readPreferenceValue(context: Context, entry: PreferencesEntry): String? {
+        return readPreferenceValue(context,entry.preferenceKey,entry.defaultValue)
+    }
+    fun readPreferenceValue(context: Context, preferenceKey: String,defaultValue: String): String? {
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return sharedPreferences.getString(entry.preferenceKey, entry.defaultValue)
+        return sharedPreferences.getString(preferenceKey, defaultValue)
     }
 
 }

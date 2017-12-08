@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 
 import remoteapkinstallerclient.com.br.remoteinstaller.R
+import remoteapkinstallerclient.com.br.remoteinstaller.service.preferences.Preferences
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class SettingsActivity : AppCompatActivity() {
             supportActionBar!!.setHomeButtonEnabled(true)
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -39,12 +41,15 @@ class SettingsActivity : AppCompatActivity() {
 
         override fun onPreferenceChange(preference: Preference, o: Any): Boolean {
             val value = o.toString()
-            (preference as? EditTextPreference)?.setSummary(preference.text)
+            (preference as? EditTextPreference)?.setSummary(value)
             return true
         }
 
         private fun updateSummaryForPreference(preferenceKey: String) {
-            findPreference(preferenceKey).onPreferenceChangeListener = this
+            val preference = findPreference(preferenceKey)
+            preference.onPreferenceChangeListener = this
+            val value = Preferences.readPreferenceValue(activity, preferenceKey, "");
+            preference.summary = value
         }
 
     }

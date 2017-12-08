@@ -7,14 +7,14 @@
                 android:defaultValue="localhost"
                 android:key="preferences_ip"
                 android:title="@string/preferences_ip"
-                />
+                android:summary="%s" />
 
             <EditTextPreference
                 android:inputType="numberDecimal"
                 android:defaultValue="8080"
                 android:key="preferences_port"
                 android:title="@string/preferences_port"
-                />
+                android:summary="%s"/>
 
 
         </PreferenceCategory>
